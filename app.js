@@ -1,15 +1,24 @@
 let levelNumber = 5;
 let childCount = 2;
+let idStart = 0;
 
 let list = [];
 
-for (let i = 0; i < levelNumber; i++) {
-    let level = i;
-    let memberCount = 2 ** i;
-    let item = {
-        id: i,
-        parentId: i !== 0 ? i - 1 : null
+for (let level = 0; level < levelNumber; level++) {
+
+    let memberCount = childCount ** level;
+
+    for (let j = 0; j <= memberCount; j++ , idStart++) {
+        let item = {
+            id: idStart,
+            parentId: level !== 0 ? level - 1 : null
+        }
+        list.push(item);
     }
 
-    list.push(item);
+
+
+
 }
+
+console.log(list);
